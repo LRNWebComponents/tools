@@ -45,8 +45,8 @@ mv demo components/$repo/
 # redirect by default to the component folder
 echo "<META http-equiv="refresh" content=\"0;URL=components/$repo/$demo\">" >index.html
 # support an optional cname flag
-if [ -z $5 ]; then
-  echo "$5" >CNAME
+if [ $5 ]; then
+  echo $5 >CNAME
 fi
 # send it all to github
 git add -A .
