@@ -18,7 +18,6 @@ org=$1
 repo=$2
 branch=${3:-"master"} # default to master when branch isn't specified
 demo=$4
-cname=$5
 # make folder (same as input, no checking!)
 mkdir $repo
 git clone git@github.com:$org/$repo.git --single-branch
@@ -46,8 +45,8 @@ mv demo components/$repo/
 # redirect by default to the component folder
 echo "<META http-equiv="refresh" content=\"0;URL=components/$repo/$demo\">" >index.html
 # support an optional cname flag
-if [ -z $cname ]; then
-  echo "$cname" >CNAME
+if [ -z $5 ]; then
+  echo "$5" >CNAME
 fi
 # send it all to github
 git add -A .
